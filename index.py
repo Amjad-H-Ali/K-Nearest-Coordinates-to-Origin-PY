@@ -18,6 +18,11 @@ def min_heap(array, indx, size):
 	# Assume smallest relative distance belongs to the parent node coordinate
 	smallest = indx	
 
+	# Define and initialize left and right children nodes
+	left = (indx * 2) + 1
+
+	right = left + 1
+
 # Tuple representing points on a Cartesian coordinate plane 
 coordinates = [(-2, -4), (0, -2), (-1, 0), (3, -5), (-2, -3), (3, 2)]
 
