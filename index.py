@@ -30,14 +30,18 @@ def min_heap(array, indx, size):
 				Relative Distance = 3² + 6²
 
 	'''
-	if(array[left][0]**2 + array[left][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):
+	if(array[left] < size and array[left][0]**2 + array[left][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):
 
 		smallest = left
 
 	# If right node relative distance is smaller, reinitalize smallest variable
-	if(array[right][0]**2 + array[right][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):	
+	if(array[right] < size and array[right][0]**2 + array[right][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):	
 
 		smallest = right
+
+		
+
+
 
 # Tuple representing points on a Cartesian coordinate plane 
 coordinates = [(-2, -4), (0, -2), (-1, 0), (3, -5), (-2, -3), (3, 2)]
