@@ -44,7 +44,13 @@ def min_heap(array, indx, size):
 		min_heap(array, smallest, size)
 		swap(array, smallest, indx)
 
+# Swaps elements in array
+def swap(array, indx1, indx2):
+	temp = array[indx1]
 
+	array[indx1] = array[indx2]
+
+	array[indx2] = temp
 
 
 # Tuple representing points on a Cartesian coordinate plane 
