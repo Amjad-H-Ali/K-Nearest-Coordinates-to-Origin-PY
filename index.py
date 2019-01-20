@@ -39,7 +39,11 @@ def min_heap(array, indx, size):
 
 		smallest = right
 
-		
+	# If parent node is not the smallest element, swap with smallest. Use reccursion to do the above code for the children nodes.
+	if(smallest != indx):
+		min_heap(array, smallest, size)
+		swap(array, smallest, indx)
+
 
 
 
