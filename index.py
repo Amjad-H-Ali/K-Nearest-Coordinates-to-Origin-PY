@@ -11,6 +11,14 @@ def find_nearest(points, k):
 
 
 
+# Swaps elements in array
+def swap(array, indx1, indx2):
+	temp = array[indx1]
+
+	array[indx1] = array[indx2]
+
+	array[indx2] = temp
+
 
 # Function will take in array of size "k" containing relative distances of coordinates and sort it into a min-heap
 def min_heap(array, indx, size):
@@ -30,12 +38,12 @@ def min_heap(array, indx, size):
 				Relative Distance = 3² + 6²
 
 	'''
-	if(array[left] < size and array[left][0]**2 + array[left][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):
+	if(left < size and array[left][0]**2 + array[left][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):
 
 		smallest = left
 
 	# If right node relative distance is smaller, reinitalize smallest variable
-	if(array[right] < size and array[right][0]**2 + array[right][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):	
+	if(right < size and array[right][0]**2 + array[right][1]**2 < array[smallest][0]**2 + array[smallest][1]**2):	
 
 		smallest = right
 
@@ -44,16 +52,9 @@ def min_heap(array, indx, size):
 		min_heap(array, smallest, size)
 		swap(array, smallest, indx)
 
-# Swaps elements in array
-def swap(array, indx1, indx2):
-	temp = array[indx1]
-
-	array[indx1] = array[indx2]
-
-	array[indx2] = temp
 
 
 # Tuple representing points on a Cartesian coordinate plane 
-coordinates = [(-2, -4), (0, -2), (-1, 0), (3, -5), (-2, -3), (3, 2)]
+coordinates = [(-2, -4), (0, -2), (-1, 0), (3, -5), (-2, -3), (3, 2), (11, 2), (8, 0), (4, 5), (15, 2), (9, -9)]
 
-find_nearest(coordinates, 3)
+find_nearest(coordinates, 7)
