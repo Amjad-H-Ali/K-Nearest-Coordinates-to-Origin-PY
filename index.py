@@ -10,21 +10,21 @@ def swap(array, indx1, indx2):
 
 # Function that takes in tuple of points and prints the "k" elements that are closest to the origin
 def find_nearest(points, k):
-	print(points)
 	# Call min_heap on parent nodes of k portion of array
 	# to sort in min-heap 
 	for indx in range(int(k/2) - 1, -1, -1):
 		
 		max_heap(points, indx, k)
 
-	# TODO
-	print(points)
+	# Now we have k portion of the array in a max-heap.
+	# Iterate through the remainder of the array and swap the root node with the an element that has a smaller relative distance (if there is one)
+	# Next, remake the max-heap if it was affected.
 	for indx in range(k, len(points)):
 
 		if(points[0][0]**2 + points[0][1]**2 > points[indx][0]**2 + points[indx][1]**2):
 			swap(points, indx, 0)
 			max_heap(points, 0, k)
-	print(points)		
+	print(points[0:k])		
 
 
 # Function will take in array of size "k" containing relative distances of coordinates and sort it into a min-heap
@@ -65,4 +65,11 @@ def max_heap(array, indx, size):
 # Tuple representing points on a Cartesian coordinate plane 
 coordinates = [(-2, -4), (0, -2), (-1, 0), (3, -5), (-2, -3), (3, 2), (11, 2), (8, 0), (4, 5), (15, 2), (9, -9), (0,0)]
 
-find_nearest(coordinates, 7)
+coordinates2 = [(8,9), (0, 0), (4, -4), (1, 1), (3, 9), (1, -1)]
+								
+								
+							  # **OUTPUT DOES NOT NEED TO BE IN ORDER**
+									
+find_nearest(coordinates, 5)  # >> [(0, 0), (-1, 0), (0, -2), (-2, -3), (3, 2)]
+
+find_nearest(coordinates2, 3) # >> [(0,0), (1, 1), (1, -1)]
